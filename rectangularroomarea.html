@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Area of a Rectangular Room</title>
+    <style>
+        #content{
+            background-color: coral;
+            width: 25%;
+            margin-left: 37.5%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        Length of the room: <input type="text" id="length"/><br/><br/>
+        Width of the room:&nbsp; <input type="text" id="width"/><br/><br/>
+        <button id="calculate">Calculate</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        var btnCalc = document.getElementById("calculate");
+        btnCalc.addEventListener('click', calculateArea, false);
+        var txtResult = document.getElementById("result");
+        function calculateArea() {
+            var len = parseInt(document.getElementById("length").value);
+            var wid = parseInt(document.getElementById("width").value);
+                if (isNaN(len)== false && /^\d+$/.test(wid)){
+                var sqFeet = len * wid;
+                const MY_CONSTANT = 0.09290304;
+                var sqMeters = sqFeet * MY_CONSTANT;
+                txtResult.innerHTML = "Length: " + len + "<br/>";
+                txtResult.innerHTML += "Width: " + wid + "<br/>";
+                txtResult.innerHTML += "Square feet: " + sqFeet + "<br/>";
+                txtResult.innerHTML += "Square meters " + sqMeters;
+            } else {
+                txtResult.innerHTML = "Insert only numbers.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mad Lib</title>
+    <style>
+        #content{
+            background-color: coral;
+            width: 25%;
+            margin-left: 37.5%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <table>
+            <tr>
+                <td>Enter a noun:</td>
+                <td><input type="text" id="inputNoun"/></td>
+            </tr>
+            <tr>
+                <td>Enter a verb:</td>
+                <td><input type="text" id="inputVerb"/></td>
+            </tr>
+            <tr>
+                <td>Enter an adjective:</td>
+                <td><input type="text" id="inputAdjective"/></td>
+            </tr>
+            <tr>
+                <td>Enter an adverb:</td>
+                <td><input type="text" id="inputAdverb"/></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="2"><button id="btnMadLib">Mad Lib</button></td>
+            </tr>
+        </table>
+        <p id="outputSentence"></p>
+    </div>
+    <script>
+        var madLibButton = document.getElementById("btnMadLib");
+        var output = document.getElementById("outputSentence");
+        madLibButton.addEventListener('click', doSomething, false);
+        function doSomething(){
+            var inputN = document.getElementById("inputNoun").value;
+            var inputV = document.getElementById("inputVerb").value;
+            var inputAdj = document.getElementById("inputAdjective").value;
+            var inputAdv = document.getElementById("inputAdverb").value;
+            output.textContent = "Do you " + inputV + " your " + inputAdj + " " + inputN + " " + inputAdv + "?";
+        }
+    </script>
+</body>
+</html>

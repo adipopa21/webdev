@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paint calculator</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        #width{
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        Width: <input type="text" id="width"/><br/><br/>
+        Length: <input type="text" id="length"/><br/><br/>
+        <button id="button">Click me!</button><br/><br/>
+        <p id="result"></p>
+    </div>
+    <script>
+        var btn = document.getElementById("button");
+        btn.addEventListener('click', paint, false);
+        var txtResult = document.getElementById("result");
+        function paint() {
+            if(document.getElementById("width").value == "" || document.getElementById("length").value == ""){
+                txtResult.innerHTML = "You missed an input."
+            }
+            else {
+                var iptWid = Number(document.getElementById("width").value);
+                var iptLen = Number(document.getElementById("length").value);
+                if(isNaN(iptWid) == true || isNaN(iptLen == true)){
+                    txtResult.innerHTML = "Insert only numbers."
+                }
+                else{
+                    var sqtFeet = iptWid * iptLen;
+                    const areaCovByOneGallon = 350;
+                    var gallonsNeeded = Math.ceil(sqtFeet / areaCovByOneGallon);
+                    txtResult.innerHTML = "You will need to purchase " +
+                        gallonsNeeded + " gallons of paint to cover " + sqtFeet +
+                        " square feet.";
+                }
+            }
+
+        }
+    </script>
+</body>
+</html>

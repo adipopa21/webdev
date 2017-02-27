@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Slices</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="content">
+        Number of people: <input type="text" id="noPeople"/><br><br>
+        Number of pizza: <input type="text" id="noPizza"/><br><br>
+        Number of slices per pizza: <input type="text" id="noSlices"/><br><br>
+        <button id="button">Do it!</button><br><br>
+        <p id="result"></p>
+    </div>
+    <script>
+        var btnSlice = document.getElementById("button");
+        btnSlice.addEventListener('click', calc, false);
+        var txtResult = document.getElementById("result");
+        function calc() {
+            var iptPeople = Number(document.getElementById("noPeople").value);
+            var iptPizza = Number(document.getElementById("noPizza").value);
+            if(document.getElementById("noSlices").value % 2 > 0 ){
+                txtResult.innerHTML = "Number of slices per pizza must be even.";
+            } else {
+                var iptSlices = Number(document.getElementById("noSlices").value);
+
+                if (isNaN(iptPeople) || isNaN(iptPizza) || isNaN(iptSlices)) {
+                    txtResult.innerHTML = "Insert only numbers.";
+                }
+                else {
+                    var totSlices = iptPizza * iptSlices;
+                    var leftOvers = 0;
+                    while (totSlices % iptPeople > 0) {
+                        totSlices--;
+                        leftOvers++;
+                    }
+                    var slicesPerPerson = totSlices / iptPeople;
+                    txtResult.innerHTML = "Number of people: " + iptPeople + "<br>";
+                    txtResult.innerHTML += "Number of pizza: " + iptPizza + "<br>";
+                    txtResult.innerHTML += "Number of slices per pizza: " + iptSlices + "<br>";
+                    if (slicesPerPerson == 1){
+                        txtResult.innerHTML += "Each person gets " + slicesPerPerson + " slice." + "<br>";
+                    }
+                    else {
+                        txtResult.innerHTML += "Each person gets " + slicesPerPerson + " slices." + "<br>";
+
+                    }
+                    txtResult.innerHTML += "Leftovers: " + leftOvers;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

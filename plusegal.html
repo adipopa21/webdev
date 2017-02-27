@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plus Egal</title>
+</head>
+<body>
+    <input type="text" id="inputNumber"/><br/>
+    <button id="plus">+</button><br/>
+    <button id="rezultat">=</button><br/>
+    <button id="clear">Sterge</button>
+    <p id="pRezultat"></p>
+    <script>
+        var btnPlus = document.getElementById("plus");
+        var btnRezultat = document.getElementById("rezultat");
+        var btnClear = document.getElementById("clear");
+        var output = document.getElementById("pRezultat");
+        var suma = 0;
+        var valIntrodusa = document.getElementById("inputNumber");
+        var valPreluata;
+        btnPlus.addEventListener('click', calculeaza, false);
+        btnRezultat.addEventListener('click', afiseaza, false);
+        btnClear.addEventListener('click', sterge, false);
+        function calculeaza() {
+            valPreluata = valIntrodusa.value;
+            suma += parseInt(valPreluata);
+            valIntrodusa.value = "";
+
+        }
+        function afiseaza() {
+            valPreluata = valIntrodusa.value;
+            suma += parseInt(valPreluata);
+            output.textContent = suma;
+        }
+        function sterge() {
+            suma = 0;
+            output.textContent = "";
+            valIntrodusa.value = "";
+        }
+
+    </script>
+</body>
+</html>

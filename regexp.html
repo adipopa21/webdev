@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regular Expressions</title>
+</head>
+<body>
+    <input type="text" id="number"/>
+    <button id="button">Click!</button>
+    <p id="result"></p>
+    <script>
+        var btn = document.getElementById("button");
+        btn.addEventListener('click', doSomething, false);
+        var txtResult = document.getElementById("result");
+        function doSomething() {
+            var iptNumber = Number(document.getElementById("number").value);
+            if (/^\d+$/.test(iptNumber)){
+                txtResult.innerHTML = false;
+            } else {
+                txtResult.innerHTML = "string";
+            }
+
+        }
+    </script>
+</body>
+</html>

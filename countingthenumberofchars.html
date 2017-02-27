@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webdev</title>
+</head>
+<body>
+    <div style="background-color: coral; padding: 20px; width: 25%; margin-left: 37.5%;">
+        Nume: <input type="text" id="myText"/>
+        <button id="myButton">Click me!</button>
+        <p id="myOutput"></p>
+    </div>
+    <script>
+        var clickButton = document.getElementById("myButton");
+        var outPutText = document.getElementById("myOutput");
+        clickButton.addEventListener('click', doSomething, false);
+        function doSomething() {
+            var inputText = document.getElementById("myText").value;
+            if(inputText == ""){
+                outPutText.textContent = "Va rugam introduceti un nume!"
+                document.getElementById("myText").style.borderColor = "red";
+            } else {
+                outPutText.textContent = "Numele introdus este " + inputText + ". ";
+                outPutText.textContent += inputText + " are " + inputText.length + " caractere.";
+            }
+        }
+    </script>
+</body>
+</html>

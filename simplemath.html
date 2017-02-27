@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Math</title>
+    <style>
+        #content{
+            width: 25%;
+            margin-left: 37.5%;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        Numarul a: <input type="text" id="iptA"/><br/><br/>
+        Numarul b: <input type="text" id="iptB"/><br/><br/>
+        <button id="btnRezultat">Simple math</button>
+        <button id="btnClear">Clear</button><br/>
+        <p id="txtRezultat">Rezultat</p>
+    </div>
+    <script>
+        var btnRez = document.getElementById("btnRezultat");
+        btnRez.addEventListener('click', math, false);
+        var btnClear = document.getElementById("btnClear");
+        btnClear.addEventListener('click', clear, false);
+        var output = document.getElementById("txtRezultat");
+        function math() {
+            var a = parseInt(document.getElementById("iptA").value);
+            var b = parseInt(document.getElementById("iptB").value);
+            var suma = a + b;
+            var scadere = a - b;
+            var inmultire = a * b;
+            var impartire = a / b;
+            output.innerHTML = a + " + " + b + " = " + suma + "<br>";
+            output.innerHTML += a + " - " + b + " = " + scadere + "<br>";
+            output.innerHTML += a + " * " + b + " = " + inmultire + "<br>";
+            output.innerHTML += a + " / " + b + " = " + impartire;
+
+        }
+        function clear() {
+            output.innerHTML = "";
+            document.getElementById("iptA").value = "";
+            document.getElementById("iptB").value = "";
+        }
+    </script>
+</body>
+</html>

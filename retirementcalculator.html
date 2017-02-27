@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Retirement calculator</title>
+    <style>
+        #content{
+            background-color: coral;
+            width: 25%;
+            margin-left: 37.5%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        Current age: &nbsp;<input type="text" id="currentAge"/><br/><br/>
+        Age to retire: <input type="text" id="retireAge"/><br/><br/>
+        <button id="retirementCalc">Retirement calculator</button>
+        <p id="rezultat"></p>
+    </div>
+    <script>
+        var txtRezultat = document.getElementById("rezultat");
+        var btnRetire = document.getElementById("retirementCalc");
+        btnRetire.addEventListener('click', retire, false);
+        function retire() {
+            var cAge = parseInt(document.getElementById("currentAge").value);
+            var rAge = parseInt(document.getElementById("retireAge").value);
+            var date = new Date();
+            var ageUntilRetire = rAge - cAge;
+            if(ageUntilRetire < 0){
+                txtRezultat.innerHTML = "Poti sa te pensionezi deja!"
+            } else {
+                txtRezultat.innerHTML = "You have " + ageUntilRetire +
+                    " years left until you can retire." + "<br>";
+                var retirementYear = date.getFullYear() + ageUntilRetire;
+                txtRezultat.innerHTML += "It's " + date.getFullYear() +
+                    ", so you can retire in " + retirementYear + ".";
+            }
+        }
+    </script>
+</body>
+</html>
