@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tax calculator</title>
+    <script src="tax.js"></script>
+</head>
+<body>
+    <form id="firstform" name="myform" method="post">
+        What is the order amount?
+        <input id="order-am" type="number" name="order-amount" required/> <br>
+        What is the state?
+        <input id="state" type="text" name="state" required/>
+        <button type="button" name="Calculate" onclick="calculateTax()">Calculate</button>
+        <p id="text"></p>
+    </form>
+</body>
+</html>

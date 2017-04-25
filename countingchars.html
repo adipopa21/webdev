@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counting chars</title>
+    <script src="script.js" type="text/javascript"></script>
+    <style type="text/css">
+        input#counter {
+            border: 0;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <form id="formCount" method="POST">
+        <label for="count">What is your input string?</label>
+        <input type="text" id="count" name="count" onclick="isEmpty();" onfocus="isEmpty();" onkeypress="startTimer();" onchange="startTimer();" />
+        <input type="text" id="counter" readonly="readonly" />
+    </form>
+    <p id="result"></p>
+</body>
+</html>
